@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>متجر نعال بالجملة | جودة، متانة، أسعار منافسة</title>
+  <meta name="description" content="نعال بالجملة: بلاستيكية، مطاطية، جلدية. أسعار تنافسية وتوصيل سريع لتجار الجملة." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#0f172a;          /* slate-900 */
+      --card:#111827;        /* gray-900 */
+      --muted:#94a3b8;       /* slate-400 */
+      --text:#e5e7eb;        /* gray-200 */
+      --brand:#22c55e;       /* emerald-500 */
+      --brand-600:#16a34a;   /* emerald-600 */
+      --accent:#06b6d4;      /* cyan-500 */
+      --warn:#f59e0b;        /* amber-500 */
+      --danger:#ef4444;      /* red-500 */
+      --border:#1f2937;      /* gray-800 */
+      --ring: rgba(34,197,94,.35);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 14px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:linear-gradient(180deg,#0b1026, #0f172a);color:var(--text);font-family:Cairo, Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif;scroll-behavior:smooth}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(1200px,92%);margin-inline:auto}
+    .nav{
+      position:sticky;top:0;z-index:50;background:rgba(15,23,42,.75);
+      backdrop-filter:blur(12px);border-bottom:1px solid var(--border)
+    }
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.3px}
+    .logo{
+      width:42px;height:42px;border-radius:12px;background:
+      radial-gradient(120px 60px at 30% 30%, #22c55e55, transparent 60%),
+      linear-gradient(135deg, #22c55e, #06b6d4);
+      display:grid;place-items:center;box-shadow:0 6px 20px #22c55e33;
+      border:1px solid #16a34a80
+    }
+    .nav-links{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+    .btn, button{
+      background:var(--brand);color:#041016;border:none;padding:12px 18px;border-radius:12px;
+      font-weight:700;cursor:pointer;box-shadow:0 10px 24px #22c55e33;transition:.2s ease;letter-spacing:.2px
+    }
+    .btn:hover{transform:translateY(-1px);background:var(--brand-600)}
+    .btn-outline{
+      background:transparent;border:1px solid var(--border);color:var(--text)
+    }
+    .lang-toggle{display:flex;align-items:center;gap:8px}
+    .lang-toggle button{padding:8px 12px;border-radius:10px}
+    .hero{padding:64px 0 36px;border-bottom:1px solid var(--border)}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
+    .kicker{color:var(--accent);font-weight:700;letter-spacing:.4px}
+    h1{font-size:clamp(28px,4.2vw,46px);margin:10px 0 12px;line-height:1.15}
+    .lead{color:var(--muted);font-size:clamp(16px,2vw,18px)}
+    .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+    .badges{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+    .badge{padding:8px 12px;border:1px solid var(--border);border-radius:999px;font-weight:600;color:#cbd5e1;background:#0b1228}
+    .card{background:linear-gradient(180deg,#0b1228, #0c142f);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .sec{padding:42px 0}
+    .sec h2{font-size:clamp(22px,3vw,30px);margin:0 0 18px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .prod-card{padding:18px}
+    .prod-card h3{margin:10px 0 8px}
+    .prod-attrs{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+    .chip{font-size:13px;color:#cbd5e1;border:1px solid var(--border);padding:6px 10px;border-radius:999px;background:#0b1228}
+    .table{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border-radius:12px;border:1px solid var(--border)}
+    .table th,.table td{padding:12px 14px;border-bottom:1px solid var(--border);text-align:inherit}
+    .table th{background:#0c142f;color:#cbd5e1;font-weight:700}
+    .form{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .form .full{grid-column:1/-1}
+    .field{display:flex;flex-direction:column;gap:8px}
+    .label{font-weight:700;color:#cbd5e1}
+    .input, select, textarea{
+      background:#0b1228;color:var(--text);border:1px solid var(--border);border-radius:12px;padding:12px 14px;outline:none;transition:.15s;
+    }
+    .input:focus, select:focus, textarea:focus{border-color:var(--brand);box-shadow:0 0 0 4px var(--ring)}
+    textarea{min-height:110px;resize:vertical}
+    .inline{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .notice{background:#0b1228;border:1px dashed var(--border);padding:12px 14px;border-radius:10px;color:#cbd5e1}
+    .contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .contact-card{padding:16px}
+    .contact-card a{display:flex;gap:10px;align-items:center;font-weight:700}
+    footer{border-top:1px solid var(--border);padding:28px 0 40px;margin-top:28px}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:18px}
+    .foot-col h4{margin:0 0 12px}
+    .socials{display:flex;gap:10px;margin-top:10px}
+    .socials a{padding:10px;border:1px solid var(--border);border-radius:10px;background:#0b1228}
+    .credit{margin-top:14px;color:#9aa4b4;font-weight:600}
+    .float-cta{
+      position:fixed;bottom:18px;inset-inline-end:18px;display:flex;flex-direction:column;gap:10px;z-index:60
+    }
+    .float-cta a{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:999px;background:#0b1228;border:1px solid var(--border);color:#e5e7eb;font-weight:700;box-shadow:var(--shadow)}
+    .float-cta .wapp{background:#22c55e;color:#06220f;border-color:#16a34a}
+    .divider{height:1px;background:var(--border);margin:18px 0}
+    /* Responsive */
+    @media (max-width:980px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .contact-cards{grid-template-columns:1fr}
+      .form{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr 1fr}
+      .nav-inner{gap:10px}
+      .nav-links{gap:12px}
+    }
+    /* EN direction when active */
+    .ltr{direction:ltr}
+    .hide{display:none !important}
+  </style>
+</head>
+<body>
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#041016" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.9L18.18 22 12 18.77 5.82 22 7 14.17l-5-4.9 6.91-1.01L12 2z"/>
+          </svg>
+        </div>
+        <span id="nav_brand_ar">متجر النعال بالجملة</span>
+        <span id="nav_brand_en" class="hide">Wholesale Sandals</span>
+      </div>
+      <div class="nav-links">
+        <a href="#products" id="nav_prod_ar">المنتجات</a>
+        <a href="#products" id="nav_prod_en" class="hide">Products</a>
+
+        <a href="#offers" id="nav_offers_ar">العروض</a>
+        <a href="#offers" id="nav_offers_en" class="hide">Offers</a>
+
+        <a href="#order" id="nav_order_ar" class="btn btn-outline">نموذج طلب الجملة</a>
+        <a href="#order" id="nav_order_en" class="btn btn-outline hide">Wholesale Order</a>
+
+        <div class="lang-toggle">
+          <button id="btn_ar" class="btn-outline">AR</button>
+          <button id="btn_en" class="btn-outline">EN</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="kicker" id="kicker_ar">جودة، متانة، وتسليم سريع</div>
+        <div class="kicker hide" id="kicker_en">Quality, durability, and fast delivery</div>
+
+        <h1 id="h1_ar">نعال بالجملة: بلاستيك، مطاط، وجلد — جاهزة لتزويد متجرك</h1>
+        <h1 id="h1_en" class="hide">Wholesale sandals: plastic, rubber, and leather — ready to stock your store</h1>
+
+        <p class="lead" id="lead_ar">نوفر تشكيلات واسعة بأسعار تنافسية لتجار الجملة وأصحاب المحلات، مع خيارات ألوان ومقاسات متعددة وتعبئة مخصصة.</p>
+        <p class="lead hide" id="lead_en">We supply a wide range at competitive wholesale prices, with flexible colors, sizes, and custom packaging options.</p>
+
+        <div class="hero-cta">
+          <a href="#order" class="btn" id="cta_primary_ar">اطلب عرض سعر الآن</a>
+          <a href="#order" class="btn hide" id="cta_primary_en">Request a quote</a>
+
+          <a href="#offers" class="btn btn-outline" id="cta_secondary_ar">اكتشف العروض</a>
+          <a href="#offers" class="btn btn-outline hide" id="cta_secondary_en">See offers</a>
+        </div>
+
+        <div class="badges">
+          <span class="badge" id="b1_ar">خصومات حجم حتى 30%</span>
+          <span class="badge hide" id="b1_en">Volume discounts up to 30%</span>
+          <span class="badge" id="b2_ar">شحن لكل المدن</span>
+          <span class="badge hide" id="b2_en">Nationwide shipping</span>
+          <span class="badge" id="b3_ar">ضمان جودة</span>
+          <span class="badge hide" id="b3_en">Quality guarantee</span>
+        </div>
+      </div>
+
+      <div class="card" style="padding:18px">
+        <img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?q=80&w=1200&auto=format&fit=crop" alt="Wholesale sandals display" style="border-radius:12px;border:1px solid var(--border)">
+      </div>
+    </div>
+  </header>
+
+  <!-- Products -->
+  <section class="sec container" id="products">
+    <h2 id="prod_h2_ar">أنواع النعال المتوفرة</h2>
+    <h2 id="prod_h2_en" class="hide">Available sandal types</h2>
+
+    <div class="grid-3">
+      <div class="card prod-card">
+        <img src="https://images.unsplash.com/photo-1582582621959-48d0ef0a1d52?q=80&w=1200&auto=format&fit=crop" alt="" style="border-radius:10px;border:1px solid var(--border)">
+        <h3 id="p1_t_ar">نعال بلاستيكية</h3>
+        <h3 id="p1_t_en" class="hide">Plastic sandals</h3>
+        <p id="p1_d_ar">خفيفة، مقاومة للماء، سهلة التنظيف، مناسبة للمسابح والفنادق والاستخدام اليومي.</p>
+        <p id="p1_d_en" class="hide">Lightweight, waterproof, easy to clean—ideal for pools, hotels, and daily wear.</p>
+        <div class="prod-attrs">
+          <span class="chip" id="p1_c1_ar">ألوان متعددة</span><span class="chip hide" id="p1_c1_en">Multi-color</span>
+          <span class="chip" id="p1_c2_ar">مقاسات 36–46</span><span class="chip hide" id="p1_c2_en">Sizes 36–46</span>
+          <span class="chip" id="p1_c3_ar">تعبئة مخصصة</span><span class="chip hide" id="p1_c3_en">Custom packing</span>
+        </div>
+      </div>
+
+      <div class="card prod-card">
+        <img src="https://images.unsplash.com/photo-1614252369475-531eba835eb1?q=80&w=1200&auto=format&fit=crop" alt="" style="border-radius:10px;border:1px solid var(--border)">
+        <h3 id="p2_t_ar">نعال مطاطية</h3>
+        <h3 id="p2_t_en" class="hide">Rubber sandals</h3>
+        <p id="p2_d_ar">مرنة ومضادة للانزلاق، تدعم راحة القدم ومناسبة للأعمال والتنقل اليومي.</p>
+        <p id="p2_d_en" class="hide">Flexible and slip-resistant, engineered for comfort and daily commuting.</p>
+        <div class="prod-attrs">
+          <span class="chip" id="p2_c1_ar">نعل مانع للانزلاق</span><span class="chip hide" id="p2_c1_en">Anti-slip sole</span>
+          <span class="chip" id="p2_c2_ar">تحمل عالي</span><span class="chip hide" id="p2_c2_en">High durability</span>
+          <span class="chip" id="p2_c3_ar">ألوان عملية</span><span class="chip hide" id="p2_c3_en">Work-friendly colors</span>
+        </div>
+      </div>
+
+      <div class="card prod-card">
+        <img src="https://images.unsplash.com/photo-1582582621959-8f2ace90e299?q=80&w=1200&auto=format&fit=crop" alt="" style="border-radius:10px;border:1px solid var(--border)">
+        <h3 id="p3_t_ar">نعال جلدية</h3>
+        <h3 id="p3_t_en" class="hide">Leather sandals</h3>
+        <p id="p3_d_ar">فاخرة وأنيقة، من جلد طبيعي أو صناعي بجودة عالية للمحلات الراقية والهدايا.</p>
+        <p id="p3_d_en" class="hide">Elegant and premium, natural or synthetic leather for upscale shops and gifting.</p>
+        <div class="prod-attrs">
+          <span class="chip" id="p3_c1_ar">تشطيبات فاخرة</span><span class="chip hide" id="p3_c1_en">Premium finishes</span>
+          <span class="chip" id="p3_c2_ar">مقاسات 39–45</span><span class="chip hide" id="p3_c2_en">Sizes 39–45</span>
+          <span class="chip" id="p3_c3_ar">علب هدايا</span><span class="chip hide" id="p3_c3_en">Gift boxing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Offers -->
+  <section class="sec container" id="offers">
+    <h2 id="offers_h2_ar">عروض وخصومات لتجار الجملة</h2>
+    <h2 id="offers_h2_en" class="hide">Wholesale offers and discounts</h2>
+    <div class="card" style="padding:18px">
+      <div class="notice" id="offer_note_ar">وفر أكثر مع شرائح الخصم التالية. الأسعار تقديرية ويمكن تخصيصها حسب الكميات.</div>
+      <div class="notice hide" id="offer_note_en">Save more with these volume tiers. Pricing is indicative and customizable by quantity.</div>
+      <div class="divider"></div>
+      <div style="overflow:auto">
+        <table class="table">
+          <thead>
+            <tr>
+              <th id="th_tier_ar">الشريحة</th>
+              <th id="th_tier_en" class="hide">Tier</th>
+              <th id="th_qty_ar">الكمية</th>
+              <th id="th_qty_en" class="hide">Quantity</th>
+              <th id="th_disc_ar">خصم</th>
+              <th id="th_disc_en" class="hide">Discount</th>
+              <th id="th_benefit_ar">الفائدة</th>
+              <th id="th_benefit_en" class="hide">Benefit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="t1_ar">أساسي</td><td id="t1_en" class="hide">Basic</td>
+              <td>100–299</td>
+              <td class="hide">100–299</td>
+              <td>5%</td>
+              <td class="hide">5%</td>
+              <td id="tb1_ar">توفير أولي مع شحن قياسي</td><td id="tb1_en" class="hide">Entry savings + standard shipping</td>
+            </tr>
+            <tr>
+              <td id="t2_ar">متقدم</td><td id="t2_en" class="hide">Advanced</td>
+              <td>300–999</td>
+              <td class="hide">300–999</td>
+              <td>12%</td>
+              <td class="hide">12%</td>
+              <td id="tb2_ar">خصم أكبر ودعم تغليف مخصص</td><td id="tb2_en" class="hide">Higher discount + custom packing support</td>
+            </tr>
+            <tr>
+              <td id="t3_ar">شريك</td><td id="t3_en" class="hide">Partner</td>
+              <td>1000+</td>
+              <td class="hide">1000+</td>
+              <td>30%</td>
+              <td class="hide">30%</td>
+              <td id="tb3_ar">أفضل الأسعار وأولوية التوريد</td><td id="tb3_en" class="hide">Best pricing + supply priority</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Order Form -->
+  <section class="sec container" id="order">
+    <h2 id="order_h2_ar">نموذج طلب الجملة</h2>
+    <h2 id="order_h2_en" class="hide">Wholesale order form</h2>
+
+    <form id="orderForm" class="card" style="padding:18px" novalidate>
+      <div class="form">
+        <div class="field">
+          <label class="label" id="f_company_ar">اسم الشركة/المحل</label>
+          <label class="label hide" id="f_company_en">Company/Store name</label>
+          <input class="input" type="text" name="company" required placeholder="مثال: متجر الرفيق للتجارة" />
+        </div>
+
+        <div class="field">
+          <label class="label" id="f_person_ar">اسم المسؤول</label>
+          <label class="label hide" id="f_person_en">Contact person</label>
+          <input class="input" type="text" name="person" required placeholder="الاسم الكامل" />
+        </div>
+
+        <div class="field">
+          <label class="label" id="f_phone_ar">الهاتف/واتساب</label>
+          <label class="label hide" id="f_phone_en">Phone/WhatsApp</label>
+          <input class="input" type="tel" name="phone" required placeholder="+212 6XXXXXXXX" />
+        </div>
+
+        <div class="field">
+          <label class="label" id="f_email_ar">البريد الإلكتروني</label>
+          <label class="label hide" id="f_email_en">Email</label>
+          <input class="input" type="email" name="email" placeholder="you@company.com" />
+        </div>
+
+        <div class="field">
+          <label class="label" id="f_city_ar">المدينة/المنطقة</label>
+          <label class="label hide" id="f_city_en">City/Region</label>
+          <input class="input" type="text" name="city" placeholder="إنزكان، أكادير..." />
+        </div>
+
+        <div class="field">
+          <label class="label" id="f_channel_ar">قناة التواصل المفضلة</label>
+          <label class="label hide" id="f_channel_en">Preferred contact channel</label>
+          <select name="channel" class="input">
+            <option id="opt_wh_ar">واتساب</option>
+            <option id="opt_wh_en" class="hide">WhatsApp</option>
+            <option id="opt_ph_ar">هاتف</option>
+            <option id="opt_ph_en" class="hide">Phone</option>
+            <option id="opt_em_ar">بريد إلكتروني</option>
+            <option id="opt_em_en" class="hide">Email</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label class="label" id="f_type_ar">نوع النعال</label>
+          <label class="label hide" id="f_type_en">Sandal type</label>
+          <select name="type" class="input" required>
+            <option value="" selected disabled id="opt_sel_ar">اختر نوع المنتج</option>
+            <option class="hide" id="opt_sel_en">Select a product type</option>
+            <option value="plastic" id="opt_pl_ar">بلاستيكية</option>
+            <option value="plastic" class="hide" id="opt_pl_en">Plastic</option>
+            <option value="rubber" id="opt_rb_ar">مطاطية</option>
+            <option value="rubber" class="hide" id="opt_rb_en">Rubber</option>
+            <option value="leather" id="opt_le_ar">جلدية</option>
+            <option value="leather" class="hide" id="opt_le_en">Leather</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label class="label" id="f_qty_ar">الكمية المطلوبة</label>
+          <label class="label hide" id="f_qty_en">Required quantity</label>
+          <input class="input" type="number" name="quantity" min="50" step="10" required placeholder="مثال: 300" />
+        </div>
+
+        <div class="field full">
+          <label class="label" id="f_specs_ar">المقاسات والألوان</label>
+          <label class="label hide" id="f_specs_en">Sizes and colors</label>
+          <input class="input" type="text" name="specs" placeholder="مثال: 40-45 | أسود، أزرق، بني" />
+        </div>
+
+        <div class="field">
+          <label class="label" id="f_ship_ar">طريقة الشحن</label>
+          <label class="label hide" id="f_ship_en">Shipping method</label>
+          <select name="shipping" class="input">
+            <option id="opt_std_ar">شحن قياسي</option>
+            <option id="opt_std_en" class="hide">Standard</option>
+            <option id="opt_exp_ar">شحن سريع</option>
+            <option id="opt_exp_en" class="hide">Express</option>
+            <option id="opt_pick_ar">استلام من المستودع</option>
+            <option id="opt_pick_en" class="hide">Warehouse pickup</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label class="label" id="f_pay_ar">طريقة الدفع</label>
+          <label class="label hide" id="f_pay_en">Payment method</label>
+          <select name="payment" class="input">
+            <option id="opt_cod_ar">عند الاستلام</option>
+            <option id="opt_cod_en" class="hide">Cash on delivery</option>
+            <option id="opt_bank_ar">تحويل بنكي</option>
+            <option id="opt_bank_en" class="hide">Bank transfer</option>
+            <option id="opt_card_ar">بطاقة بنكية</option>
+            <option id="opt_card_en" class="hide">Credit card</option>
+          </select>
+        </div>
+
+        <div class="field full">
+          <label class="label" id="f_notes_ar">ملاحظات إضافية</label>
+          <label class="label hide" id="f_notes_en">Additional notes</label>
+          <textarea name="notes" class="input" placeholder="أي تفاصيل خاصة بالتعبئة أو التسليم..."></textarea>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="inline">
+        <button type="submit" class="btn" id="btn_submit_ar">إرسال طلب عرض السعر</button>
+        <button type="submit" class="btn hide" id="btn_submit_en">Submit quote request</button>
+        <span class="notice" id="form_hint_ar">سنعاود الاتصال خلال 24–48 ساعة.</span>
+        <span class="notice hide" id="form_hint_en">We’ll respond within 24–48 hours.</span>
+      </div>
+
+      <p id="form_status" class="notice" style="margin-top:12px;display:none"></p>
+    </form>
+  </section>
+
+  <!-- Contact + Social -->
+  <section class="sec container">
+    <h2 id="contact_h2_ar">قنوات التواصل</h2>
+    <h2 id="contact_h2_en" class="hide">Contact channels</h2>
+
+    <div class="contact-cards">
+      <div class="card contact-card">
+        <a href="https://wa.me/212600000000" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#041016"><path d="M20.52 3.48A11.94 11.94 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.18 1.6 6.01L0 24l6.17-1.6A11.94 11.94 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.19-1.24-6.19-3.48-8.52zM12 22a9.94 9.94 0 0 1-5.06-1.38l-.36-.21-3.65.95.98-3.56-.23-.37A9.94 9.94 0 0 1 2 12c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10zm5.4-7.63c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.23-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.48 0 1.46 1.08 2.87 1.23 3.07.15.2 2.12 3.23 5.14 4.54.72.31 1.28.5 1.71.64.72.23 1.38.2 1.9.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.43-.08-.13-.27-.2-.57-.35z"/></svg>
+          <span id="wapp_ar">واتساب: +212 6 00 00 00 00</span>
+          <span id="wapp_en" class="hide">WhatsApp: +212 6 00 00 00 00</span>
+        </a>
+      </div>
+      <div class="card contact-card">
+        <a href="tel:+212600000000">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#22c55e"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.11.37 2.31.57 3.58.57a1 1 0 0 1 1 1v3.5a1 1 0 0 1-1 1C11.3 22.82 1.18 12.7 1.18 1a1 1 0 0 1 1-1H5.7a1 1 0 0 1 1 1c0 1.27.2 2.47.57 3.58a1 1 0 0 1-.25 1.01l-2.4 2.2z"/></svg>
+          <span id="phone_ar">الهاتف: +212 6 00 00 00 00</span>
+          <span id="phone_en" class="hide">Phone: +212 6 00 00 00 00</span>
+        </a>
+      </div>
+      <div class="card contact-card">
+        <a href="mailto:sales@na3alstore.ma">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#06b6d4"><path d="M22 6a2 2 0 0 0-2-2H4C2.9 4 2 4.9 2 6v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6zm-2 0-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>
+          <span id="mail_ar">البريد: sales@na3alstore.ma</span>
+          <span id="mail_en" class="hide">Email: sales@na3alstore.ma</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="socials">
+      <a href="#" aria-label="Instagram" title="Instagram">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#cbd5e1"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm0 2h10c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3zm11 1a1 1 0 100 2 1 1 0 000-2zM12 7a5 5 0 100 10 5 5 0 000-10z"/></svg>
+      </a>
+      <a href="#" aria-label="Facebook" title="Facebook">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#cbd5e1"><path d="M22 12.07C22 6.48 17.52 2 11.93 2 6.35 2 1.87 6.48 1.87 12.07c0 4.99 3.65 9.12 8.42 9.93v-7.02H7.9v-2.9h2.39V9.41c0-2.36 1.4-3.66 3.54-3.66 1.03 0 2.11.18 2.11.18v2.33h-1.19c-1.17 0-1.54.73-1.54 1.48v1.78h2.62l-.42 2.9h-2.2V22c4.77-.81 8.42-4.94 8.42-9.93z"/></svg>
+      </a>
+      <a href="#" aria-label="LinkedIn" title="LinkedIn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#cbd5e1"><path d="M6.94 6.5A2.44 2.44 0 1 1 6.93 1.6a2.44 2.44 0 0 1 0 4.9zM2.8 22.4h8.3v-9.5c0-2.27.43-4.47 3.25-4.47 2.78 0 2.82 2.54 2.82 4.62v9.35h8.29V12.1c0-5.22-1.13-9.24-7.27-9.24-2.95 0-4.94 1.62-5.75 3.15h-.08V3.26H2.8c.1 2.03 0 19.14 0 19.14z"/></svg>
+      </a>
+      <a href="#" aria-label="YouTube" title="YouTube">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#cbd5e1"><path d="M23.5 6.2s-.23-1.63-.94-2.35c-.9-.94-1.9-.95-2.36-1-3.3-.24-8.25-.24-8.25-.24h-.01s-4.95 0-8.25.24c-.46.05-1.46.06-2.36 1-.71.72-.94 2.35-.94 2.35S0 8.13 0 10.05v1.9c0 1.93.24 3.86.24 3.86s.23 1.63.94 2.35c.9.94 2.08.9 2.61 1 1.9.18 8.1.24 8.1.24s4.95 0 8.25-.24c.46-.05 1.46-.06 2.36-1 .71-.72.94-2.35.94-2.35s.24-1.93.24-3.86v-1.9c0-1.92-.24-3.85-.24-3.85zM9.54 14.74V7.94l6.36 3.4-6.36 3.4z"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="brand">
+          <div class="logo" aria-hidden="true"></div>
+          <div>
+            <div id="foot_title_ar" style="font-weight:800">متجر النعال بالجملة</div>
+            <div id="foot_title_en" class="hide" style="font-weight:800">Wholesale Sandals</div>
+            <p style="color:var(--muted);margin:6px 0 0" id="foot_desc_ar">نوفر حلول توريد موثوقة لتجارتك مع دعم ما بعد البيع.</p>
+            <p style="color:var(--muted);margin:6px 0 0" id="foot_desc_en" class="hide">Reliable wholesale supply with after-sales support.</p>
+          </div>
+        </div>
+        <div class="credit" id="credit_ar">تصميم وتطوير: طارق ناجمي — جميع الحقوق محفوظة لـ E-Smart Market Pro AI</div>
+        <div class="credit hide" id="credit_en">Design & development: Tarek Najemi — All rights reserved to E-Smart Market Pro AI</div>
+      </div>
+
+      <div class="foot-col">
+        <h4 id="fc1_ar">روابط</h4><h4 id="fc1_en" class="hide">Links</h4>
+        <ul style="list-style:none;padding:0;margin:0;display:grid;gap:8px">
+          <li><a href="#products" id="fl1_ar">المنتجات</a><a href="#products" id="fl1_en" class="hide">Products</a></li>
+          <li><a href="#offers" id="fl2_ar">العروض</a><a href="#offers" id="fl2_en" class="hide">Offers</a></li>
+          <li><a href="#order" id="fl3_ar">طلب الجملة</a><a href="#order" id="fl3_en" class="hide">Wholesale order</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h4 id="fc2_ar">السياسات</h4><h4 id="fc2_en" class="hide">Policies</h4>
+        <ul style="list-style:none;padding:0;margin:0;display:grid;gap:8px">
+          <li><a href="#privacy" id="fp1_ar">سياسة الخصوصية</a><a href="#privacy" id="fp1_en" class="hide">Privacy policy</a></li>
+          <li><a href="#terms" id="fp2_ar">الشروط والأحكام</a><a href="#terms" id="fp2_en" class="hide">Terms & conditions</a></li>
+          <li><a href="#refund" id="fp3_ar">سياسة الاسترجاع</a><a href="#refund" id="fp3_en" class="hide">Return policy</a></li>
+          <li><a href="#shipping" id="fp4_ar">سياسة الشحن</a><a href="#shipping" id="fp4_en" class="hide">Shipping policy</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h4 id="fc3_ar">الموقع</h4><h4 id="fc3_en" class="hide">Location</h4>
+        <p id="loc_ar" style="color:var(--muted)">حي التجارة، إنزكان، سوس ماسة، المغرب</p>
+        <p id="loc_en" class="hide" style="color:var(--muted)">Hay At-Tijara, Inezgane, Souss-Massa, Morocco</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating quick actions -->
+  <div class="float-cta">
+    <a class="wapp" href="https://wa.me/212600000000" target="_blank" rel="noopener">
+      <span id="fw_ar">مراسلة واتساب</span><span id="fw_en" class="hide">Chat on WhatsApp</span>
+    </a>
+    <a href="tel:+212600000000">
+      <span id="fc_ar">اتصال مباشر</span><span id="fc_en" class="hide">Call now</span>
+    </a>
+    <a href="mailto:sales@na3alstore.ma">
+      <span id="fe_ar">إرسال بريد</span><span id="fe_en" class="hide">Send email</span>
+    </a>
+  </div>
+
+  <!-- Placeholder policy anchors -->
+  <div id="privacy"></div>
+  <div id="terms"></div>
+  <div id="refund"></div>
+  <div id="shipping"></div>
+
+  <script>
+    // Language toggling
+    const setLang = (lang) => {
+      const isAR = lang === 'ar';
+      document.documentElement.lang = isAR ? 'ar' : 'en';
+      document.documentElement.dir = isAR ? 'rtl' : 'ltr';
+      // Toggle all pairs with IDs ending _ar / _en
+      document.querySelectorAll('[id$="_ar"], [id$="_en"]').forEach(el=>{
+        const isEn = el.id.endsWith('_en');
+        el.classList.toggle('hide', isAR ? isEn : !isEn);
+      });
+      // Form direction tweak for EN readability
+      const form = document.getElementById('orderForm');
+      form.classList.toggle('ltr', !isAR);
+    };
+
+    document.getElementById('btn_ar').addEventListener('click', ()=>setLang('ar'));
+    document.getElementById('btn_en').addEventListener('click', ()=>setLang('en'));
+
+    // Default language detection (browser hint)
+    (()=>{
+      const pref = (navigator.language || 'ar').toLowerCase().startsWith('ar') ? 'ar' : 'en';
+      setLang(pref);
+    })();
+
+    // Basic form validation + simulated submit
+    const form = document.getElementById('orderForm');
+    const statusEl = document.getElementById('form_status');
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+      // Basic checks
+      const missing = [];
+      if(!data.company) missing.push('company');
+      if(!data.person) missing.push('person');
+      if(!data.phone) missing.push('phone');
+      if(!data.type) missing.push('type');
+      if(!data.quantity) missing.push('quantity');
+
+      const isAR = document.documentElement.lang === 'ar';
+
+      if(missing.length){
+        statusEl.style.display='block';
+        statusEl.style.borderColor='var(--danger)';
+        statusEl.style.color='#fecaca';
+        statusEl.textContent = isAR ? 'يرجى تعبئة الحقول الإلزامية.' : 'Please fill in the required fields.';
+        return;
+      }
+
+      statusEl.style.display='block';
+      statusEl.style.borderColor='var(--brand)';
+      statusEl.style.color='#bbf7d0';
+      statusEl.textContent = isAR
+        ? 'تم استلام طلبك بنجاح. سنتواصل معك خلال 24–48 ساعة.'
+        : 'Your request was received. We will contact you within 24–48 hours.';
+
+      // Example: open WhatsApp with a pre-filled message for quick follow-up
+      const msg = encodeURIComponent(
+        (isAR ? 'طلب عرض سعر' : 'Quote request') + '\\n'
+        + (isAR ? 'شركة: ' : 'Company: ') + data.company + '\\n'
+        + (isAR ? 'مسؤول: ' : 'Contact: ') + data.person + '\\n'
+        + (isAR ? 'هاتف: ' : 'Phone: ') + data.phone + '\\n'
+        + (isAR ? 'نوع: ' : 'Type: ') + data.type + '\\n'
+        + (isAR ? 'كمية: ' : 'Qty: ') + data.quantity + '\\n'
+        + (isAR ? 'مدينة: ' : 'City: ') + (data.city||'-')
+      );
+      // Change number below to your business WhatsApp
+      const waNumber = '212600000000';
+      // Uncomment next line if you want to auto-open WhatsApp after submit:
+      // window.open('https://wa.me/' + waNumber + '?text=' + msg, '_blank');
+      form.reset();
+    });
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>
