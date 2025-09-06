@@ -8,113 +8,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <style>
-    :root{
-      --bg:#0f172a;          /* slate-900 */
-      --card:#111827;        /* gray-900 */
-      --muted:#94a3b8;       /* slate-400 */
-      --text:#e5e7eb;        /* gray-200 */
-      --brand:#22c55e;       /* emerald-500 */
-      --brand-600:#16a34a;   /* emerald-600 */
-      --accent:#06b6d4;      /* cyan-500 */
-      --warn:#f59e0b;        /* amber-500 */
-      --danger:#ef4444;      /* red-500 */
-      --border:#1f2937;      /* gray-800 */
-      --ring: rgba(34,197,94,.35);
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius: 14px;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:linear-gradient(180deg,#0b1026, #0f172a);color:var(--text);font-family:Cairo, Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif;scroll-behavior:smooth}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    .container{width:min(1200px,92%);margin-inline:auto}
-    .nav{
-      position:sticky;top:0;z-index:50;background:rgba(15,23,42,.75);
-      backdrop-filter:blur(12px);border-bottom:1px solid var(--border)
-    }
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.3px}
-    .logo{
-      width:42px;height:42px;border-radius:12px;background:
-      radial-gradient(120px 60px at 30% 30%, #22c55e55, transparent 60%),
-      linear-gradient(135deg, #22c55e, #06b6d4);
-      display:grid;place-items:center;box-shadow:0 6px 20px #22c55e33;
-      border:1px solid #16a34a80
-    }
-    .nav-links{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
-    .btn, button{
-      background:var(--brand);color:#041016;border:none;padding:12px 18px;border-radius:12px;
-      font-weight:700;cursor:pointer;box-shadow:0 10px 24px #22c55e33;transition:.2s ease;letter-spacing:.2px
-    }
-    .btn:hover{transform:translateY(-1px);background:var(--brand-600)}
-    .btn-outline{
-      background:transparent;border:1px solid var(--border);color:var(--text)
-    }
-    .lang-toggle{display:flex;align-items:center;gap:8px}
-    .lang-toggle button{padding:8px 12px;border-radius:10px}
-    .hero{padding:64px 0 36px;border-bottom:1px solid var(--border)}
-    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
-    .kicker{color:var(--accent);font-weight:700;letter-spacing:.4px}
-    h1{font-size:clamp(28px,4.2vw,46px);margin:10px 0 12px;line-height:1.15}
-    .lead{color:var(--muted);font-size:clamp(16px,2vw,18px)}
-    .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
-    .badges{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
-    .badge{padding:8px 12px;border:1px solid var(--border);border-radius:999px;font-weight:600;color:#cbd5e1;background:#0b1228}
-    .card{background:linear-gradient(180deg,#0b1228, #0c142f);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
-    .sec{padding:42px 0}
-    .sec h2{font-size:clamp(22px,3vw,30px);margin:0 0 18px}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .prod-card{padding:18px}
-    .prod-card h3{margin:10px 0 8px}
-    .prod-attrs{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
-    .chip{font-size:13px;color:#cbd5e1;border:1px solid var(--border);padding:6px 10px;border-radius:999px;background:#0b1228}
-    .table{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border-radius:12px;border:1px solid var(--border)}
-    .table th,.table td{padding:12px 14px;border-bottom:1px solid var(--border);text-align:inherit}
-    .table th{background:#0c142f;color:#cbd5e1;font-weight:700}
-    .form{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-    .form .full{grid-column:1/-1}
-    .field{display:flex;flex-direction:column;gap:8px}
-    .label{font-weight:700;color:#cbd5e1}
-    .input, select, textarea{
-      background:#0b1228;color:var(--text);border:1px solid var(--border);border-radius:12px;padding:12px 14px;outline:none;transition:.15s;
-    }
-    .input:focus, select:focus, textarea:focus{border-color:var(--brand);box-shadow:0 0 0 4px var(--ring)}
-    textarea{min-height:110px;resize:vertical}
-    .inline{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-    .notice{background:#0b1228;border:1px dashed var(--border);padding:12px 14px;border-radius:10px;color:#cbd5e1}
-    .contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .contact-card{padding:16px}
-    .contact-card a{display:flex;gap:10px;align-items:center;font-weight:700}
-    footer{border-top:1px solid var(--border);padding:28px 0 40px;margin-top:28px}
-    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:18px}
-    .foot-col h4{margin:0 0 12px}
-    .socials{display:flex;gap:10px;margin-top:10px}
-    .socials a{padding:10px;border:1px solid var(--border);border-radius:10px;background:#0b1228}
-    .credit{margin-top:14px;color:#9aa4b4;font-weight:600}
-    .float-cta{
-      position:fixed;bottom:18px;inset-inline-end:18px;display:flex;flex-direction:column;gap:10px;z-index:60
-    }
-    .float-cta a{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:999px;background:#0b1228;border:1px solid var(--border);color:#e5e7eb;font-weight:700;box-shadow:var(--shadow)}
-    .float-cta .wapp{background:#22c55e;color:#06220f;border-color:#16a34a}
-    .divider{height:1px;background:var(--border);margin:18px 0}
-    /* Responsive */
-    @media (max-width:980px){
-      .hero-grid{grid-template-columns:1fr}
-      .grid-3{grid-template-columns:1fr}
-      .contact-cards{grid-template-columns:1fr}
-      .form{grid-template-columns:1fr}
-      .footer-grid{grid-template-columns:1fr 1fr}
-      .nav-inner{gap:10px}
-      .nav-links{gap:12px}
-    }
-    /* EN direction when active */
-    .ltr{direction:ltr}
-    .hide{display:none !important}
-  </style>
+  <!-- ربط ملف التنسيقات الخارجي -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Nav -->
+  <!-- شريط التنقل -->
   <nav class="nav">
     <div class="container nav-inner">
       <div class="brand">
@@ -144,7 +42,7 @@
     </div>
   </nav>
 
-  <!-- Hero -->
+  <!-- البطل -->
   <header class="hero">
     <div class="container hero-grid">
       <div>
@@ -176,19 +74,19 @@
       </div>
 
       <div class="card" style="padding:18px">
-        <img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?q=80&w=1200&auto=format&fit=crop" alt="Wholesale sandals display" style="border-radius:12px;border:1px solid var(--border)">
+        <img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?q=80&w=1200&auto=format&fit=crop" alt="عرض نعال بالجملة" style="border-radius:12px;border:1px solid var(--border)">
       </div>
     </div>
   </header>
 
-  <!-- Products -->
+  <!-- المنتجات -->
   <section class="sec container" id="products">
     <h2 id="prod_h2_ar">أنواع النعال المتوفرة</h2>
     <h2 id="prod_h2_en" class="hide">Available sandal types</h2>
 
     <div class="grid-3">
       <div class="card prod-card">
-        <img src="https://images.unsplash.com/photo-1582582621959-48d0ef0a1d52?q=80&w=1200&auto=format&fit=crop" alt="" style="border-radius:10px;border:1px solid var(--border)">
+        <img src="https://images.unsplash.com/photo-1582582621959-48d0ef0a1d52?q=80&w=1200&auto=format&fit=crop" alt="نعال بلاستيكية" style="border-radius:10px;border:1px solid var(--border)">
         <h3 id="p1_t_ar">نعال بلاستيكية</h3>
         <h3 id="p1_t_en" class="hide">Plastic sandals</h3>
         <p id="p1_d_ar">خفيفة، مقاومة للماء، سهلة التنظيف، مناسبة للمسابح والفنادق والاستخدام اليومي.</p>
@@ -201,7 +99,7 @@
       </div>
 
       <div class="card prod-card">
-        <img src="https://images.unsplash.com/photo-1614252369475-531eba835eb1?q=80&w=1200&auto=format&fit=crop" alt="" style="border-radius:10px;border:1px solid var(--border)">
+        <img src="https://images.unsplash.com/photo-1614252369475-531eba835eb1?q=80&w=1200&auto=format&fit=crop" alt="نعال مطاطية" style="border-radius:10px;border:1px solid var(--border)">
         <h3 id="p2_t_ar">نعال مطاطية</h3>
         <h3 id="p2_t_en" class="hide">Rubber sandals</h3>
         <p id="p2_d_ar">مرنة ومضادة للانزلاق، تدعم راحة القدم ومناسبة للأعمال والتنقل اليومي.</p>
@@ -214,7 +112,7 @@
       </div>
 
       <div class="card prod-card">
-        <img src="https://images.unsplash.com/photo-1582582621959-8f2ace90e299?q=80&w=1200&auto=format&fit=crop" alt="" style="border-radius:10px;border:1px solid var(--border)">
+        <img src="https://images.unsplash.com/photo-1582582621959-8f2ace90e299?q=80&w=1200&auto=format&fit=crop" alt="نعال جلدية" style="border-radius:10px;border:1px solid var(--border)">
         <h3 id="p3_t_ar">نعال جلدية</h3>
         <h3 id="p3_t_en" class="hide">Leather sandals</h3>
         <p id="p3_d_ar">فاخرة وأنيقة، من جلد طبيعي أو صناعي بجودة عالية للمحلات الراقية والهدايا.</p>
@@ -228,7 +126,7 @@
     </div>
   </section>
 
-  <!-- Offers -->
+  <!-- العروض -->
   <section class="sec container" id="offers">
     <h2 id="offers_h2_ar">عروض وخصومات لتجار الجملة</h2>
     <h2 id="offers_h2_en" class="hide">Wholesale offers and discounts</h2>
@@ -281,7 +179,7 @@
     </div>
   </section>
 
-  <!-- Order Form -->
+  <!-- نموذج الطلب -->
   <section class="sec container" id="order">
     <h2 id="order_h2_ar">نموذج طلب الجملة</h2>
     <h2 id="order_h2_en" class="hide">Wholesale order form</h2>
@@ -404,7 +302,7 @@
     </form>
   </section>
 
-  <!-- Contact + Social -->
+  <!-- قنوات التواصل -->
   <section class="sec container">
     <h2 id="contact_h2_ar">قنوات التواصل</h2>
     <h2 id="contact_h2_en" class="hide">Contact channels</h2>
@@ -449,7 +347,7 @@
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- التذييل -->
   <footer>
     <div class="container footer-grid">
       <div>
@@ -493,7 +391,7 @@
     </div>
   </footer>
 
-  <!-- Floating quick actions -->
+  <!-- أزرار عائمة للتواصل السريع -->
   <div class="float-cta">
     <a class="wapp" href="https://wa.me/212600000000" target="_blank" rel="noopener">
       <span id="fw_ar">مراسلة واتساب</span><span id="fw_en" class="hide">Chat on WhatsApp</span>
@@ -506,85 +404,13 @@
     </a>
   </div>
 
-  <!-- Placeholder policy anchors -->
+  <!-- مراسي سياسات فارغة مبدئيًا -->
   <div id="privacy"></div>
   <div id="terms"></div>
   <div id="refund"></div>
   <div id="shipping"></div>
 
-  <script>
-    // Language toggling
-    const setLang = (lang) => {
-      const isAR = lang === 'ar';
-      document.documentElement.lang = isAR ? 'ar' : 'en';
-      document.documentElement.dir = isAR ? 'rtl' : 'ltr';
-      // Toggle all pairs with IDs ending _ar / _en
-      document.querySelectorAll('[id$="_ar"], [id$="_en"]').forEach(el=>{
-        const isEn = el.id.endsWith('_en');
-        el.classList.toggle('hide', isAR ? isEn : !isEn);
-      });
-      // Form direction tweak for EN readability
-      const form = document.getElementById('orderForm');
-      form.classList.toggle('ltr', !isAR);
-    };
-
-    document.getElementById('btn_ar').addEventListener('click', ()=>setLang('ar'));
-    document.getElementById('btn_en').addEventListener('click', ()=>setLang('en'));
-
-    // Default language detection (browser hint)
-    (()=>{
-      const pref = (navigator.language || 'ar').toLowerCase().startsWith('ar') ? 'ar' : 'en';
-      setLang(pref);
-    })();
-
-    // Basic form validation + simulated submit
-    const form = document.getElementById('orderForm');
-    const statusEl = document.getElementById('form_status');
-    form.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const data = Object.fromEntries(new FormData(form).entries());
-      // Basic checks
-      const missing = [];
-      if(!data.company) missing.push('company');
-      if(!data.person) missing.push('person');
-      if(!data.phone) missing.push('phone');
-      if(!data.type) missing.push('type');
-      if(!data.quantity) missing.push('quantity');
-
-      const isAR = document.documentElement.lang === 'ar';
-
-      if(missing.length){
-        statusEl.style.display='block';
-        statusEl.style.borderColor='var(--danger)';
-        statusEl.style.color='#fecaca';
-        statusEl.textContent = isAR ? 'يرجى تعبئة الحقول الإلزامية.' : 'Please fill in the required fields.';
-        return;
-      }
-
-      statusEl.style.display='block';
-      statusEl.style.borderColor='var(--brand)';
-      statusEl.style.color='#bbf7d0';
-      statusEl.textContent = isAR
-        ? 'تم استلام طلبك بنجاح. سنتواصل معك خلال 24–48 ساعة.'
-        : 'Your request was received. We will contact you within 24–48 hours.';
-
-      // Example: open WhatsApp with a pre-filled message for quick follow-up
-      const msg = encodeURIComponent(
-        (isAR ? 'طلب عرض سعر' : 'Quote request') + '\\n'
-        + (isAR ? 'شركة: ' : 'Company: ') + data.company + '\\n'
-        + (isAR ? 'مسؤول: ' : 'Contact: ') + data.person + '\\n'
-        + (isAR ? 'هاتف: ' : 'Phone: ') + data.phone + '\\n'
-        + (isAR ? 'نوع: ' : 'Type: ') + data.type + '\\n'
-        + (isAR ? 'كمية: ' : 'Qty: ') + data.quantity + '\\n'
-        + (isAR ? 'مدينة: ' : 'City: ') + (data.city||'-')
-      );
-      // Change number below to your business WhatsApp
-      const waNumber = '212600000000';
-      // Uncomment next line if you want to auto-open WhatsApp after submit:
-      // window.open('https://wa.me/' + waNumber + '?text=' + msg, '_blank');
-      form.reset();
-    });
-  </script>
+  <!-- ربط سكربت التطبيق -->
   <script src="app.js"></script>
 </body>
 </html>
